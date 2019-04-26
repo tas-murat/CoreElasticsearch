@@ -1,0 +1,28 @@
+﻿@model BankSearchResponse
+@inject IViewLocalizer Localizer
+
+<div class="container">
+    <h3>@Localizer["Toplam {0} sonuc  bulundu.", Model.Total]</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>@Localizer["İsim"]</th>
+                <th>@Localizer["Açıklama"]</th>
+                <th>@Localizer["Fiyat"]</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Bank bank in Model.Banks)
+            {
+                <tr>
+                    <td>@bank.ID</td>
+                    <td>@bank.Name</td>
+                    <td>@bank.Description</td>
+                    <td>@bank.Experience</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
